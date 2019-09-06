@@ -1,6 +1,7 @@
 package com.shailesh.SpringBootDemo.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -14,22 +15,21 @@ public class Author {
     private String lastname;
 
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> books;
+    private Set<Book> books = new HashSet<>();
 
-    public Author(Long id, String firstname, String lastname, Set<Book> books) {
-        this.id = id;
+
+    public Author() {
+    }
+
+    public Author(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
+    public Author(String firstname, String lastname, Set<Book> books) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.books = books;
-    }
-
-    public Author(Long id, String firstname, String lastname) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
-
-    public Author() {
     }
 
     public Long getId() {
@@ -69,7 +69,7 @@ public class Author {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
-        return id.equals(author.id);
+        return Objects.equals(id, author.id);
     }
 
     @Override

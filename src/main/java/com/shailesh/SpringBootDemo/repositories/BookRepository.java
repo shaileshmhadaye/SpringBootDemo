@@ -1,4 +1,4 @@
-package com.shailesh.SpringBootDemo.model.repositories;
+package com.shailesh.SpringBootDemo.repositories;
 
 import com.shailesh.SpringBootDemo.model.Book;
 import org.springframework.data.repository.CrudRepository;
