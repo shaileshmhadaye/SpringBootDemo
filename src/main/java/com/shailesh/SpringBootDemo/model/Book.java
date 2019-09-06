@@ -14,7 +14,7 @@ public class Book {
     private String title;
     private String isbn;
 
-    @OneToOne(targetEntity = Publisher.class, cascade = CascadeType.ALL)
+    @OneToOne
     private Publisher publisher;
 
     @ManyToMany
